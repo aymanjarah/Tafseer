@@ -1,0 +1,573 @@
+[
+  {
+    "number": 1,
+    "name":  "الفاتحة",
+    "total_verses": 7
+  
+  },
+  {
+    "number": 2,
+    "name":  "البقرة",
+    "total_verses": 286
+  },
+  {
+    "number": 3,
+    "name":  "آل عمران",
+    "total_verses": 200
+  },
+  {
+    "number": 4,
+    "name":  "النساء",
+    "total_verses": 176
+  },
+  {
+    "number": 5,
+    "name":  "المائدة",
+    "total_verses": 120
+  },
+  {
+    "number": 6,
+    "name":  "الأنعام",
+    "total_verses": 165
+  },
+  {
+    "number": 7,
+    "name":  "الأعراف",
+    "total_verses": 206
+  },
+  {
+    "number": 8,
+    "name":  "الأنفال",
+    "total_verses": 75
+  },
+  {
+    "number": 9,
+    "name":  "التوبة",
+    "total_verses": 129
+  },
+  {
+    "number": 10,
+    "name":  "يونس",
+    "total_verses": 109
+  },
+  {
+    "number": 11,
+    "name":  "هود",
+    "total_verses": 123
+  },
+  {
+    "number": 12,
+    "name":  "يوسف",
+    "total_verses": 111
+  },
+  {
+    "number": 13,
+    "name":  "الرعد",
+    "total_verses": 43
+  },
+  {
+    "number": 14,
+    "name":  "ابراهيم",
+    "total_verses": 52
+  },
+  {
+    "number": 15,
+    "name":  "الحجر",
+    "total_verses": 99
+  },
+  {
+    "number": 16,
+    "name":  "النحل",
+    "total_verses": 128
+  },
+  {
+    "number": 17,
+    "name":  "الإسراء",
+    "total_verses": 111
+  },
+  {
+    "number": 18,
+    "name":  "الكهف",
+    "total_verses": 110
+  },
+  {
+    "number": 19,
+    "name":  "مريم",
+    "total_verses": 98
+  },
+  {
+    "number": 20,
+    "name":  "طه",
+    "total_verses": 135
+  },
+  {
+    "number": 21,
+    "name":  "الأنبياء",
+    "total_verses": 112
+  },
+  {
+    "number": 22,
+    "name":  "الحج",
+    "total_verses": 78
+  },
+  {
+    "number": 23,
+    "name":  "المؤمنون",
+    "total_verses": 118
+  },
+  {
+    "number": 24,
+    "name":  "النور",
+    "total_verses": 64
+  },
+  {
+    "number": 25,
+    "name":  "الفرقان",
+    "total_verses": 77
+  },
+  {
+    "number": 26,
+    "name":  "الشعراء",
+    "total_verses": 227
+  },
+  {
+    "number": 27,
+    "name":  "النمل",
+    "total_verses": 93
+  },
+  {
+    "number": 28,
+    "name":  "القصص",
+    "total_verses": 88
+  },
+  {
+    "number": 29,
+    "name":  "العنكبوت",
+    "total_verses": 69
+  },
+  {
+    "number": 30,
+    "name":  "الروم",
+    "total_verses": 60
+  },
+  {
+    "number": 31,
+    "name":  "لقمان",
+    "total_verses": 34
+  },
+  {
+    "number": 32,
+    "name":  "السجدة",
+    "total_verses": 30
+  },
+  {
+    "number": 33,
+    "name":  "الأحزاب",
+    "total_verses": 73
+  },
+  {
+    "number": 34,
+    "name":  "سبإ",
+    "total_verses": 54
+  },
+  {
+    "number": 35,
+    "name":  "فاطر",
+    "total_verses": 45
+  },
+  {
+    "number": 36,
+    "name":  "يس",
+    "total_verses": 83
+  },
+  {
+    "number": 37,
+    "name":  "الصافات",
+    "total_verses": 182
+  },
+  {
+    "number": 38,
+    "name":  "ص",
+    "total_verses": 88
+  },
+  {
+    "number": 39,
+    "name":  "الزمر",
+    "total_verses": 75
+  },
+  {
+    "number": 40,
+    "name":  "غافر",
+    "total_verses": 85
+  },
+  {
+    "number": 41,
+    "name":  "فصلت",
+    "total_verses": 54
+  },
+  {
+    "number": 42,
+    "name":  "الشورى",
+    "total_verses": 53
+  },
+  {
+    "number": 43,
+    "name":  "الزخرف",
+    "total_verses": 89
+  },
+  {
+    "number": 44,
+    "name":  "الدخان",
+    "total_verses": 59
+  },
+  {
+    "number": 45,
+    "name":  "الجاثية",
+    "total_verses": 37
+  },
+  {
+    "number": 46,
+    "name":  "الأحقاف",
+    "total_verses": 35
+  },
+  {
+    "number": 47,
+    "name":  "محمد",
+    "total_verses": 38
+  },
+  {
+    "number": 48,
+    "name":  "الفتح",
+    "total_verses": 29
+  },
+  {
+    "number": 49,
+    "name":  "الحجرات",
+    "total_verses": 18
+  },
+  {
+    "number": 50,
+    "name":  "ق",
+    "total_verses": 45
+  },
+  {
+    "number": 51,
+    "name":  "الذاريات",
+    "total_verses": 60
+  },
+  {
+    "number": 52,
+    "name":  "الطور",
+    "total_verses": 49
+  },
+  {
+    "number": 53,
+    "name":  "النجم",
+    "total_verses": 62
+  },
+  {
+    "number": 54,
+    "name":  "القمر",
+    "total_verses": 55
+  },
+  {
+    "number": 55,
+    "name":  "الرحمن",
+    "total_verses": 78
+  },
+  {
+    "number": 56,
+    "name":  "الواقعة",
+    "total_verses": 96
+  },
+  {
+    "number": 57,
+    "name":  "الحديد",
+    "total_verses": 29
+  },
+  {
+    "number": 58,
+    "name":  "المجادلة",
+    "total_verses": 22
+  },
+  {
+    "number": 59,
+    "name":  "الحشر",
+    "total_verses": 24
+  },
+  {
+    "number": 60,
+    "name":  "الممتحنة",
+    "total_verses": 13
+  },
+  {
+    "number": 61,
+    "name":  "الصف",
+    "total_verses": 14
+  },
+  {
+    "number": 62,
+    "name":  "الجمعة",
+    "total_verses": 11
+  },
+  {
+    "number": 63,
+    "name":  "المنافقون",
+    "total_verses": 11
+  },
+  {
+    "number": 64,
+    "name":  "التغابن",
+    "total_verses": 18
+  },
+  {
+    "number": 65,
+    "name":  "الطلاق",
+    "total_verses": 12
+  },
+  {
+    "number": 66,
+    "name":  "التحريم",
+    "total_verses": 12
+  },
+  {
+    "number": 67,
+    "name":  "الملك",
+    "total_verses": 30
+  },
+  {
+    "number": 68,
+    "name":  "القلم",
+    "total_verses": 52
+  },
+  {
+    "number": 69,
+    "name":  "الحاقة",
+    "total_verses": 52
+  },
+  {
+    "number": 70,
+    "name":  "المعارج",
+    "total_verses": 44
+  },
+  {
+    "number": 71,
+    "name":  "نوح",
+    "total_verses": 28
+  },
+  {
+    "number": 72,
+    "name":  "الجن",
+    "total_verses": 28
+  },
+  {
+    "number": 73,
+    "name":  "المزمل",
+    "total_verses": 20
+  },
+  {
+    "number": 74,
+    "name":  "المدثر",
+    "total_verses": 56
+  },
+  {
+    "number": 75,
+    "name":  "القيامة",
+    "total_verses": 40
+  },
+  {
+    "number": 76,
+    "name":  "الانسان",
+    "total_verses": 31
+  },
+  {
+    "number": 77,
+    "name":  "المرسلات",
+    "total_verses": 50
+  },
+  {
+    "number": 78,
+    "name":  "النبإ",
+    "total_verses": 40
+  },
+  {
+    "number": 79,
+    "name":  "النازعات",
+    "total_verses": 46
+  },
+  {
+    "number": 80,
+    "name":  "عبس",
+    "total_verses": 42
+  },
+  {
+    "number": 81,
+    "name":  "التكوير",
+    "total_verses": 29
+  },
+  {
+    "number": 82,
+    "name":  "الإنفطار",
+    "total_verses": 19
+  },
+  {
+    "number": 83,
+    "name":  "المطففين",
+    "total_verses": 36
+  },
+  {
+    "number": 84,
+    "name":  "الإنشقاق",
+    "total_verses": 25
+  },
+  {
+    "number": 85,
+    "name":  "البروج",
+    "total_verses": 22
+  },
+  {
+    "number": 86,
+    "name":  "الطارق",
+    "total_verses": 17
+  },
+  {
+    "number": 87,
+    "name":  "الأعلى",
+    "total_verses": 19
+  },
+  {
+    "number": 88,
+    "name":  "الغاشية",
+    "total_verses": 26
+  },
+  {
+    "number": 89,
+    "name":  "الفجر",
+    "total_verses": 30
+  },
+  {
+    "number": 90,
+    "name":  "البلد",
+    "total_verses": 20
+  },
+  {
+    "number": 91,
+    "name":  "الشمس",
+    "total_verses": 15
+  },
+  {
+    "number": 92,
+    "name":  "الليل",
+    "total_verses": 21
+  },
+  {
+    "number": 93,
+    "name":  "الضحى",
+    "total_verses": 11
+  },
+  {
+    "number": 94,
+    "name":  "الشرح",
+    "total_verses": 8
+  },
+  {
+    "number": 95,
+    "name":  "التين",
+    "total_verses": 8
+  },
+  {
+    "number": 96,
+    "name":  "العلق",
+    "total_verses": 19
+  },
+  {
+    "number": 97,
+    "name":  "القدر",
+    "total_verses": 5
+  },
+  {
+    "number": 98,
+    "name":  "البينة",
+    "total_verses": 8
+  },
+  {
+    "number": 99,
+    "name":  "الزلزلة",
+    "total_verses": 8
+  },
+  {
+    "number": 100,
+    "name":  "العاديات",
+    "total_verses": 11
+  },
+  {
+    "number": 101,
+    "name":  "القارعة",
+    "total_verses": 11
+  },
+  {
+    "number": 102,
+    "name":  "التكاثر",
+    "total_verses": 8
+  },
+  {
+    "number": 103,
+    "name":  "العصر",
+    "total_verses": 3
+  },
+  {
+    "number": 104,
+    "name":  "الهمزة",
+    "total_verses": 9
+  },
+  {
+    "number": 105,
+    "name":  "الفيل",
+    "total_verses": 5
+  },
+  {
+    "number": 106,
+    "name":  "قريش",
+    "total_verses": 4
+  },
+  {
+    "number": 107,
+    "name":  "الماعون",
+    "total_verses": 7
+  },
+  {
+    "number": 108,
+    "name":  "الكوثر",
+    "total_verses": 3
+  },
+  {
+    "number": 109,
+    "name":  "الكافرون",
+    "total_verses": 6
+  },
+  {
+    "number": 110,
+    "name":  "النصر",
+    "total_verses": 3
+  },
+  {
+    "number": 111,
+    "name":  "المسد",
+    "total_verses": 5
+  },
+  {
+    "number": 112,
+    "name":  "الإخلاص",
+    "total_verses": 4
+  },
+  {
+    "number": 113,
+    "name":  "الفلق",
+    "total_verses": 5
+  },
+  {
+    "number": 114,
+    "name":  "الناس",
+    "total_verses":6
+  }
+]
