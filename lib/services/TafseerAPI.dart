@@ -12,6 +12,6 @@ class Tafseer {
     Response response = await get('http://api.quran-tafseer.com/quran/$url');
     Map data = json.decode(utf8.decode(response.bodyBytes));
     ayah = data['text'];
-    print(ayah);
+    print(data);
   }
 }

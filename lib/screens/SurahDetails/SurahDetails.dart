@@ -26,7 +26,7 @@ class _Surah_detailsState extends State<Surah_details> {
   String ayah = '';
 
   void ayahContent() async {
-    Tafseer instance = Tafseer(url: '1/1');
+    Tafseer instance = Tafseer(url: '10/4');
     await instance.getAyah();
     setState(() {
       ayah = instance.ayah;
@@ -41,6 +41,8 @@ class _Surah_detailsState extends State<Surah_details> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Stack(
@@ -81,21 +83,58 @@ class _Surah_detailsState extends State<Surah_details> {
                       fontSize: 80, fontFamily: 'Tajawal', color: kTextColor),
                 )),
                 Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: kDefaultPadding * 2),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        AyahWidget(
-                          ayah: ayah,
-                          ayahnumber: 2,
+                  padding: const EdgeInsets.all(8.0),
+                  child: RichText(
+                      textAlign: TextAlign.justify,
+                      textDirection: TextDirection.rtl,
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                          text: ayah,
+                          //softWrap: false,
+                          style: TextStyle(
+                            wordSpacing: 10,
+                            fontSize: 23,
+                            fontFamily: 'QuraanFont',
+                            color: kTextColor,
+                          ),
                         ),
-                        AyahWidget(
-                          ayah: ayah,
-                          ayahnumber: 1,
+                        TextSpan(
+                          text: '2',
+                          //softWrap: false,
+                          style: TextStyle(
+                            wordSpacing: 10,
+                            fontSize: 23,
+                            fontFamily: 'QuraanFont',
+                            color: kTextColor,
+                          ),
                         ),
-                      ],
-                    )),
+                        TextSpan(
+                          text: ayah,
+                          //softWrap: false,
+                          style: TextStyle(
+                            wordSpacing: 10,
+                            fontSize: 23,
+                            fontFamily: 'QuraanFont',
+                            color: kTextColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '2',
+                          //softWrap: false,
+                          style: TextStyle(
+                            wordSpacing: 10,
+                            fontSize: 23,
+                            fontFamily: 'QuraanFont',
+                            color: kTextColor,
+                          ),
+                        ),
+
+                        /*WidgetSpan(child: AyahWidget(ayah: ayah)),
+                    WidgetSpan(child: AyahWidget(ayah: ayah)),
+                    WidgetSpan(child: AyahWidget(ayah: ayah)),
+                    WidgetSpan(child: AyahWidget(ayah: ayah)),*/
+                      ])),
+                ),
               ],
             ),
           ),
@@ -116,43 +155,42 @@ class AyahWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Transform.translate(
-            offset: Offset(2, 5),
-            child: Container(
-              alignment: Alignment.center,
-              width: 25.0,
-              height: 25.0,
-              decoration: new BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle,
-              ),
-              child: Text(
-                '$ayahnumber',
+    return /*Text(
+      ayah,
+      softWrap: true,
+      style: TextStyle(
+        fontSize: 23,
+        fontFamily: 'QuraanFont',
+        color: kTextColor,
+      ),
+    );*/
+        RichText(
+            textAlign: TextAlign.justify,
+            textDirection: TextDirection.rtl,
+            text: TextSpan(children: <TextSpan>[
+              //WidgetSpan(child: SizedBox(width: 5)),
+              TextSpan(
+                text: ayah,
+                //softWrap: false,
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+                  wordSpacing: 10,
+                  fontSize: 23,
                   fontFamily: 'QuraanFont',
                   color: kTextColor,
                 ),
               ),
-            ),
-          ),
-          Text(
-            ayah,
-            textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 23,
-              fontFamily: 'QuraanFont',
-              color: kTextColor,
-            ),
-          ),
-        ],
-      ),
-    );
+              TextSpan(
+                text: '$ayahnumber',
+                //softWrap: false,
+                style: TextStyle(
+                  wordSpacing: 10,
+                  fontSize: 23,
+                  fontFamily: 'QuraanFont',
+                  color: kTextColor,
+                ),
+              ),
+
+              //WidgetSpan(child: Text('ffff', style: TextStyle(color: Colors.blue))),
+            ]));
   }
 }

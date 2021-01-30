@@ -21,10 +21,6 @@ class SurahTab extends StatefulWidget {
 }
 
 class _SurahTabState extends State<SurahTab> {
-  Future<void> Test() async {
-    await (print('rr'));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -58,6 +54,7 @@ class _SurahTabState extends State<SurahTab> {
                   ),
                 ),
               );
+              print('e');
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(

@@ -6,6 +6,7 @@ import 'package:tafseer_app/screens/Home/components/AnimatedSearchBar.dart';
 import 'package:tafseer_app/screens/Home/components/SurahTab.dart';
 import 'dart:convert';
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   List data;
   @override
