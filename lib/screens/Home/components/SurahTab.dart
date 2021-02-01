@@ -6,13 +6,15 @@ class SurahTab extends StatefulWidget {
   const SurahTab({
     Key key,
     this.surah_name,
-    this.number_of_Ayah,
+    this.surah_number,
+    this.number_of_Ayahs,
     @required this.width,
     @required this.height,
   }) : super(key: key);
 
   final String surah_name;
-  final int number_of_Ayah;
+  final int number_of_Ayahs;
+  final int surah_number;
   final double width;
   final double height;
 
@@ -50,6 +52,8 @@ class _SurahTabState extends State<SurahTab> {
                   builder: (context) => Surah_details(
                     width: widget.width,
                     height: widget.height,
+                    surah_num: widget.surah_number,
+                    num_of_Ayahs: widget.number_of_Ayahs,
                     surah_name: widget.surah_name,
                   ),
                 ),
@@ -75,7 +79,7 @@ class _SurahTabState extends State<SurahTab> {
                               color: kTextColor),
                         ),
                         Text(
-                          ' ${widget.number_of_Ayah}',
+                          ' ${widget.number_of_Ayahs}',
                           style: TextStyle(
                               fontSize: 30,
                               fontFamily: 'Tajawal',

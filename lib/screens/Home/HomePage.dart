@@ -55,8 +55,9 @@ class HomePage extends StatelessWidget {
                         return ListView.builder(
                           itemBuilder: (BuildContext context, int index) {
                             return SurahTab(
+                                surah_number: index,
                                 surah_name: newData[index]['name'],
-                                number_of_Ayah: newData[index]['total_verses'],
+                                number_of_Ayahs: newData[index]['total_verses'],
                                 width: width,
                                 height: height);
                           },
