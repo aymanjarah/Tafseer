@@ -1,15 +1,19 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tafseer_app/constants.dart';
 import 'package:tafseer_app/screens/SurahTafseer/SurahTafseer.dart';
 import 'package:tafseer_app/services/TafseerAPI.dart';
 
+// ignore: camel_case_types
 class Surah_details extends StatefulWidget {
   const Surah_details({
     Key key,
     // ignore: non_constant_identifier_names
     this.surah_name,
+    // ignore: non_constant_identifier_names
     this.surah_num,
+    // ignore: non_constant_identifier_names
     this.num_of_Ayahs,
     @required this.width,
     @required this.height,
@@ -31,10 +35,13 @@ class _Surah_detailsState extends State<Surah_details> {
   List<String> responses = [];
   List<Tafseer> instances = [];
 
-  void loadAyahs() {
+  void ayahContent() {
     for (var i = 1; i <= {widget.num_of_Ayahs}.first; i++) {
       instances.add(Tafseer(url: '${widget.surah_num + 1}/$i'));
     }
+  }
+
+  void loadAyahs() {
     Future.wait(instances.map((instance) => instance.getAyah()).toList())
         .then((void v) {
       responses =
@@ -50,6 +57,18 @@ class _Surah_detailsState extends State<Surah_details> {
     for (var i = 0; i < ayahs.length; i++) {
       children.add(
         TextSpan(
+          recognizer: TapGestureRecognizer()
+            ..onTap = () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SurahTafseer(
+                          idsurah: widget.surah_num,
+                          idayah: i + 1,
+                          ayah: ayahs[i]),
+                    ),
+                  )
+                },
           text: ayahs[i],
           //softWrap: false,
           style: TextStyle(
@@ -88,6 +107,7 @@ class _Surah_detailsState extends State<Surah_details> {
   @override
   void initState() {
     super.initState();
+    ayahContent();
     loadAyahs();
   }
 
@@ -108,24 +128,13 @@ class _Surah_detailsState extends State<Surah_details> {
                 SizedBox(
                   height: widget.height * 0.08,
                 ),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SurahTafseer(),
-                        ),
-                      );
-                    },
-                    child: Center(
-                        child: Text(
-                      'سورة ${widget.surah_name}',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 34,
-                          fontFamily: 'Tajawal',
-                          color: kTextColor),
-                    ))),
+                Center(
+                    child: Text(
+                  'سورة ${widget.surah_name}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 34, fontFamily: 'Tajawal', color: kTextColor),
+                )),
                 /*Center(
                     child: Text(
                   '1',
