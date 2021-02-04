@@ -25,36 +25,100 @@ class SurahTafseer extends StatefulWidget {
 class _SurahTafseerState extends State<SurahTafseer> {
   int _body = 2;
   String _tafseerContent = '';
-  String _active = 'تفسير  1';
+  String _active = 'تفسير الجلالين';
   Widget bodyFunction(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     switch (_body) {
       case 0:
-        print(0);
-        loadTafseer(0);
-        return Text(
-          _tafseerContent,
-          style: TextStyle(color: Colors.white),
+        loadTafseer(3);
+        return SizedBox(
+          height: height * 0.6,
+          child: Padding(
+            padding: const EdgeInsets.all(kDefaultPadding + 5),
+            child: Column(
+              children: [
+                Flexible(
+                  child: ListView(
+                    children: [
+                      Text(
+                        _tafseerContent ?? "",
+                        textAlign: TextAlign.justify,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                            wordSpacing: 4,
+                            height: 1.5,
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: 'Tajawal'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
         break;
       case 1:
-        print(1);
-        return Column(
-          children: [],
+        loadTafseer(1);
+        return SizedBox(
+          height: height * 0.6,
+          child: Padding(
+            padding: const EdgeInsets.all(kDefaultPadding + 5),
+            child: Column(
+              children: [
+                Flexible(
+                  child: ListView(
+                    children: [
+                      Text(
+                        _tafseerContent ?? "",
+                        textAlign: TextAlign.justify,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                            wordSpacing: 4,
+                            height: 1.5,
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: 'Tajawal'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
         break;
       case 2:
-        print(2);
-        return Column(
-          children: [],
+        loadTafseer(2);
+        return SizedBox(
+          height: height * 0.6,
+          child: Padding(
+            padding: const EdgeInsets.all(kDefaultPadding + 5),
+            child: Column(
+              children: [
+                Flexible(
+                  child: ListView(
+                    children: [
+                      Text(
+                        _tafseerContent ?? "",
+                        textAlign: TextAlign.justify,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                            wordSpacing: 4,
+                            height: 1.5,
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: 'Tajawal'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
-        break;
-      default:
-        return Column(
-          children: [],
-        );
-
         break;
     }
   }
@@ -65,19 +129,22 @@ class _SurahTafseerState extends State<SurahTafseer> {
     });
   }
 
+  // ignore: non_constant_identifier_names
   void ChangeBody(int index) {
     setState(() {
       _body = index;
     });
   }
 
-  void loadTafseer(index) {
+  void loadTafseer(index) async {
     Tafseer tafseerAyah =
-        Tafseer(url: '$index/${widget.idsurah}/${widget.idayah}');
-    tafseerAyah.getTafseer();
-    setState(() {
-      _tafseerContent = tafseerAyah.tafseer;
-    });
+        Tafseer(url: '$index/${widget.idsurah + 1}/${widget.idayah}');
+    await tafseerAyah.getTafseer();
+    if (mounted) {
+      setState(() {
+        _tafseerContent = tafseerAyah.tafseer;
+      });
+    }
   }
 
   @override
@@ -142,10 +209,10 @@ class _SurahTafseerState extends State<SurahTafseer> {
                       event: ChangeBody,
                       action: active,
                       index: 0,
-                      active: _active == 'تفسير  3' ? true : false,
-                      text: "تفسير  3",
-                      height: 35,
-                      textSize: 18,
+                      active: _active == 'تفسير السعدي' ? true : false,
+                      text: "تفسير السعدي",
+                      height: 25,
+                      textSize: 15,
                       colortext: Colors.black,
                       color: kPrimaryColor,
                     ),
@@ -154,10 +221,10 @@ class _SurahTafseerState extends State<SurahTafseer> {
                       event: ChangeBody,
                       action: active,
                       index: 1,
-                      active: _active == 'تفسير  2' ? true : false,
-                      text: "تفسير  2",
-                      height: 35,
-                      textSize: 18,
+                      active: _active == 'التفسير الميسر' ? true : false,
+                      text: "التفسير الميسر",
+                      height: 25,
+                      textSize: 15,
                       colortext: Colors.black,
                       color: kPrimaryColor,
                     ),
@@ -166,10 +233,10 @@ class _SurahTafseerState extends State<SurahTafseer> {
                       event: ChangeBody,
                       action: active,
                       index: 2,
-                      active: _active == 'تفسير  1' ? true : false,
-                      text: "تفسير  1",
-                      height: 35,
-                      textSize: 18,
+                      active: _active == 'تفسير الجلالين' ? true : false,
+                      text: "تفسير الجلالين",
+                      height: 25,
+                      textSize: 15,
                       colortext: Colors.black,
                       color: kPrimaryColor,
                     ),
@@ -177,9 +244,6 @@ class _SurahTafseerState extends State<SurahTafseer> {
             ),
           ),
           bodyFunction(context),
-          SizedBox(
-            height: height * 0.65,
-          ),
           Container(
             height: height * 0.1,
             child: Padding(
@@ -187,7 +251,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
                   top: kDefaultPadding + 10,
                   right: kDefaultPadding + 5,
                   left: kDefaultPadding + 5,
-                  bottom: kDefaultPadding),
+                  bottom: kDefaultPadding + 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -46,9 +46,11 @@ class _Surah_detailsState extends State<Surah_details> {
         .then((void v) {
       responses =
           responses + instances.map((instance) => instance.ayah).toList();
-      setState(() {
-        ayah = responses;
-      });
+      if (mounted) {
+        setState(() {
+          ayah = responses;
+        });
+      }
     });
   }
 

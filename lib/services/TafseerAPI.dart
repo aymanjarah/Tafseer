@@ -22,9 +22,9 @@ class Tafseer {
   Future<void> getTafseer() async {
     // make the request
     try {
-      Response response = await get('http://api.quran-tafseer.com/quran/$url');
+      Response response =
+          await get('http://api.quran-tafseer.com/tafseer/$url');
       Map data = json.decode(utf8.decode(response.bodyBytes));
-
       tafseer = data['text'];
     } catch (e) {
       print('couldnot');
