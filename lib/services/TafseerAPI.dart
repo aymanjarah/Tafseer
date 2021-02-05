@@ -15,7 +15,7 @@ class Tafseer {
 
       ayah = data['text'];
     } catch (e) {
-      print('couldnot');
+      print('couldnot ayah');
     }
   }
 

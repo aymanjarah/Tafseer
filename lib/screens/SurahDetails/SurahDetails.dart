@@ -64,10 +64,17 @@ class _Surah_detailsState extends State<Surah_details> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SurahTafseer(
-                          idsurah: widget.surah_num,
-                          idayah: i + 1,
-                          ayah: ayahs[i]),
+                      builder: (context) => PageView.builder(
+                        controller: PageController(initialPage: i),
+                        reverse: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return SurahTafseer(
+                              idsurah: widget.surah_num,
+                              idayah: index + 1,
+                              ayah: ayahs[index]);
+                        },
+                        itemCount: ayahs == null ? 0 : ayahs.length,
+                      ),
                     ),
                   )
                 },
