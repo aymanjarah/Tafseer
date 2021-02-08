@@ -15,13 +15,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  dynamic data;
-  String _f = '';
+  List _ayahs;
+  String _f;
+  List _filteredNames;
   void getData() async {
     dynamic ayahsList = await rootBundle.loadString('Assets/testfile.json');
     ayahsList = json.decode(ayahsList.toString());
     setState(() {
-      data = ayahsList;
+      _filteredNames = ayahsList;
+      _ayahs = ayahsList;
     });
   }
 
@@ -31,10 +33,22 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  void first(String btn) {
+  void first(String data) {
     setState(() {
-      _f = btn;
-      print(_f);
+      _f = data;
+    });
+  }
+
+  void filter(String field) {
+    List tempList = new List();
+    for (int i = 0; i < _ayahs.length; i++) {
+      if (_ayahs[i]['name'].toLowerCase().contains(field.toLowerCase())) {
+        tempList.add(_ayahs[i]);
+      }
+    }
+    setState(() {
+      _filteredNames = tempList;
+      print(field);
     });
   }
 
@@ -69,7 +83,8 @@ class _HomePageState extends State<HomePage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: AnimatedSearch(
-                      event: first,
+                      state: filter,
+                      data: _ayahs,
                       width: width,
                       height: height,
                     ),
@@ -80,12 +95,14 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (BuildContext context, int index) {
                       return SurahTab(
                           surah_number: index,
-                          surah_name: data[index]['name'],
-                          number_of_Ayahs: data[index]['total_verses'],
+                          surah_name: _filteredNames[index]['name'],
+                          number_of_Ayahs: _filteredNames[index]
+                              ['total_verses'],
                           width: width,
                           height: height);
                     },
-                    itemCount: data == null ? 0 : data.length,
+                    itemCount:
+                        _filteredNames == null ? 0 : _filteredNames.length,
                   )),
                 ],
               ),

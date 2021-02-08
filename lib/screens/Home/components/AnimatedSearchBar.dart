@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class AnimatedSearch extends StatefulWidget {
   const AnimatedSearch({
     Key key,
-    this.event,
+    this.state,
+    this.data,
     @required this.width,
     @required this.height,
   }) : super(key: key);
-  final ValueChanged<String> event;
+  final ValueChanged<String> state;
+  final List data;
   final double width;
   final double height;
   @override
@@ -15,12 +17,22 @@ class AnimatedSearch extends StatefulWidget {
 }
 
 class _AnimatedSearchState extends State<AnimatedSearch> {
+  String _searchText = "";
+  List _filteredNames = new List();
   final TextEditingController _filter = new TextEditingController();
   void mainof() {
     _filter.addListener(() {
-      setState(() {
-        widget.event(_filter.text);
-      });
+      if (_filter.text.isEmpty) {
+        setState(() {
+          _searchText = "";
+          widget.state(_searchText);
+        });
+      } else {
+        setState(() {
+          _searchText = _filter.text;
+          widget.state(_searchText);
+        });
+      }
     });
   }
 
