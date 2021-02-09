@@ -33,7 +33,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
       case 0:
         loadTafseer(3);
         return SizedBox(
-          height: height * 0.6,
+          height: height * 0.7,
           child: Padding(
             padding: const EdgeInsets.all(kDefaultPadding + 5),
             child: Column(
@@ -63,7 +63,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
       case 1:
         loadTafseer(1);
         return SizedBox(
-          height: height * 0.6,
+          height: height * 0.7,
           child: Padding(
             padding: const EdgeInsets.all(kDefaultPadding + 5),
             child: Column(
@@ -93,7 +93,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
       case 2:
         loadTafseer(2);
         return SizedBox(
-          height: height * 0.6,
+          height: height * 0.7,
           child: Padding(
             padding: const EdgeInsets.all(kDefaultPadding + 5),
             child: Column(
@@ -138,7 +138,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
 
   void loadTafseer(index) async {
     Tafseer tafseerAyah =
-        Tafseer(url: '$index/${widget.idsurah + 1}/${widget.idayah}');
+        Tafseer(url: '$index/${widget.idsurah}/${widget.idayah}');
     await tafseerAyah.getTafseer();
     if (mounted) {
       setState(() {
@@ -244,37 +244,6 @@ class _SurahTafseerState extends State<SurahTafseer> {
             ),
           ),
           bodyFunction(context),
-          Container(
-            height: height * 0.1,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  top: kDefaultPadding + 10,
-                  right: kDefaultPadding + 5,
-                  left: kDefaultPadding + 5,
-                  bottom: kDefaultPadding + 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'الآية التالية ',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Tajawal',
-                        color: kPrimaryColor,
-                        letterSpacing: 1.5),
-                  ),
-                  Text(
-                    'الآية السابقة ',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Tajawal',
-                        color: kPrimaryColor,
-                        letterSpacing: 1.5),
-                  ),
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );

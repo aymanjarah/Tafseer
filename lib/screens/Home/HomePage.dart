@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                       child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
                       return SurahTab(
-                          surah_number: index,
+                          surah_number: _filteredNames[index]['number'],
                           surah_name: _filteredNames[index]['name'],
                           number_of_Ayahs: _filteredNames[index]
                               ['total_verses'],

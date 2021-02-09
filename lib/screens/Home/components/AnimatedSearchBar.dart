@@ -84,7 +84,8 @@ class _AnimatedSearchState extends State<AnimatedSearch> {
                   ? TextFormField(
                       controller: _filter,
                       textDirection: TextDirection.rtl,
-                      style: TextStyle(color: Colors.white),
+                      style:
+                          TextStyle(color: Colors.white, fontFamily: 'Tajawal'),
                       textAlign: TextAlign.right,
                       decoration: InputDecoration(
                           labelStyle: TextStyle(color: Colors.white),

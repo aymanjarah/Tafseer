@@ -12,39 +12,46 @@ class OnBoard_start extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: GestureDetector(
-        onTap: () {print('ok ok');},
+        onTap: () {
+          print('ok ok');
+        },
         child: Column(
           children: [
-            SizedBox(height: height*0.15),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Center(child: SvgPicture.asset('')),
+            SizedBox(height: height * 0.1),
+            Text(
+              'حول التطبيق',
+              style: TextStyle(
+                  fontFamily: 'Tajawal', color: kTextColor, fontSize: 34),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom:15.0),
-              child: Center(child: SvgPicture.asset('')),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom:15.0),
-              child: Center(child: SvgPicture.asset('')),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom:20.0),
-              child: Center(child: SvgPicture.asset('')),
+            SizedBox(height: 15),
+            Text(
+              ' ﻣﻨﺼﺔ إﻟﻜﺘﺮوﻧﻴﺔ ﻟﻠﺠﻤﻊ ﺑﻴﻦ ﻓﻌﺎﻟﻴﺎت اﻟﻤﺠﺘﻤﻊ\n اﻟﻤﺪﻧﻲ ﻟﻠﺘﻌﺮﻳﻒ ﺑﺄﺷﻄﺘﻬﺎ وﺑﻴﻦ اﻟﻤﺘﻄﻮﻋﻴﻦ\n .ﻟﺨﺪﻣﺔ وﻣﺴﺎﻋﺪة ﻫﺬه اﻟﺄﺧﻴﺮة ',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  height: 2,
+                  fontFamily: 'Tajawal',
+                  color: kTextColor,
+                  fontSize: 16),
             ),
             SizedBox(height: 25),
             Center(child: SvgPicture.asset('Assets/Salat.svg')),
-            SizedBox(height: height*0.06),
-            ButtonMain(textSize:19,text: "ابدَأ",width: 92, height: 45,colortext:Colors.black,colorBorder:Colors.transparent,color:kPrimaryColor, page: HomePage(), ),
-
-
+            SizedBox(height: height * 0.06),
+            ButtonMain(
+              textSize: 19,
+              text: "ابدَأ",
+              width: 92,
+              height: 45,
+              colortext: Colors.black,
+              colorBorder: Colors.transparent,
+              color: kPrimaryColor,
+              page: HomePage(),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
 
 class ButtonMain extends StatelessWidget {
   const ButtonMain({
@@ -75,17 +82,22 @@ class ButtonMain extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => page,
           ),
-        );},
+        );
+      },
       child: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(36),
-          border: Border.all(color:colorBorder),
+          border: Border.all(color: colorBorder),
         ),
-        
-        child: Center(child: Text("$text", style: TextStyle(fontSize: textSize,color: colortext, fontFamily: 'Tajawal'))),
+        child: Center(
+            child: Text("$text",
+                style: TextStyle(
+                    fontSize: textSize,
+                    color: colortext,
+                    fontFamily: 'Tajawal'))),
       ),
     );
   }

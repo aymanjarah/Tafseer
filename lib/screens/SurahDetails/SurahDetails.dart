@@ -37,7 +37,7 @@ class _Surah_detailsState extends State<Surah_details> {
 
   void ayahContent() {
     for (var i = 1; i <= {widget.num_of_Ayahs}.first; i++) {
-      instances.add(Tafseer(url: '${widget.surah_num + 1}/$i'));
+      instances.add(Tafseer(url: '${widget.surah_num}/$i'));
     }
   }
 
