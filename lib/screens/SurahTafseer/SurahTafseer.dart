@@ -24,14 +24,16 @@ class SurahTafseer extends StatefulWidget {
 
 class _SurahTafseerState extends State<SurahTafseer> {
   int _body = 2;
-  String _tafseerContent = '';
+  String tafseer1 = '';
+  String tafseer2 = '';
+  String tafseer3 = '';
   String _active = 'تفسير الجلالين';
+  // ignore: missing_return
   Widget bodyFunction(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     switch (_body) {
       case 0:
-        loadTafseer(3);
         return SizedBox(
           height: height * 0.7,
           child: Padding(
@@ -42,7 +44,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
                   child: ListView(
                     children: [
                       Text(
-                        _tafseerContent ?? "",
+                        tafseer3 ?? "",
                         textAlign: TextAlign.justify,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
@@ -61,7 +63,6 @@ class _SurahTafseerState extends State<SurahTafseer> {
         );
         break;
       case 1:
-        loadTafseer(1);
         return SizedBox(
           height: height * 0.7,
           child: Padding(
@@ -72,7 +73,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
                   child: ListView(
                     children: [
                       Text(
-                        _tafseerContent ?? "",
+                        tafseer1 ?? "",
                         textAlign: TextAlign.justify,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
@@ -91,7 +92,6 @@ class _SurahTafseerState extends State<SurahTafseer> {
         );
         break;
       case 2:
-        loadTafseer(2);
         return SizedBox(
           height: height * 0.7,
           child: Padding(
@@ -102,7 +102,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
                   child: ListView(
                     children: [
                       Text(
-                        _tafseerContent ?? "",
+                        tafseer2 ?? "",
                         textAlign: TextAlign.justify,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
@@ -136,15 +136,29 @@ class _SurahTafseerState extends State<SurahTafseer> {
     });
   }
 
-  void loadTafseer(index) async {
-    Tafseer tafseerAyah =
-        Tafseer(url: '$index/${widget.idsurah}/${widget.idayah}');
-    await tafseerAyah.getTafseer();
-    if (mounted) {
-      setState(() {
-        _tafseerContent = tafseerAyah.tafseer;
-      });
-    }
+  @override
+  void initState() {
+    super.initState();
+    loadTafseer();
+  }
+
+  void loadTafseer() async {
+    Tafseer tafseerAyah2 = Tafseer(url: '2/${widget.idsurah}/${widget.idayah}');
+    Tafseer tafseerAyah3 = Tafseer(url: '3/${widget.idsurah}/${widget.idayah}');
+    Tafseer tafseerAyah1 = Tafseer(url: '1/${widget.idsurah}/${widget.idayah}');
+    Future.wait([
+      tafseerAyah2.getTafseer(),
+      tafseerAyah3.getTafseer(),
+      tafseerAyah1.getTafseer()
+    ]).then((void v) {
+      if (mounted) {
+        setState(() {
+          tafseer1 = tafseerAyah1.tafseer;
+          tafseer2 = tafseerAyah2.tafseer;
+          tafseer3 = tafseerAyah3.tafseer;
+        });
+      }
+    });
   }
 
   @override

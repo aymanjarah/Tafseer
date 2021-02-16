@@ -5,15 +5,20 @@ import 'package:tafseer_app/screens/SurahDetails/SurahDetails.dart';
 class SurahTab extends StatefulWidget {
   const SurahTab({
     Key key,
+    // ignore: non_constant_identifier_names
     this.surah_name,
+    // ignore: non_constant_identifier_names
     this.surah_number,
+    // ignore: non_constant_identifier_names
     this.number_of_Ayahs,
     @required this.width,
     @required this.height,
   }) : super(key: key);
-
+// ignore: non_constant_identifier_names
   final String surah_name;
+  // ignore: non_constant_identifier_names
   final int number_of_Ayahs;
+  // ignore: non_constant_identifier_names
   final int surah_number;
   final double width;
   final double height;

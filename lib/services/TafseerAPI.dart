@@ -2,18 +2,20 @@ import 'package:http/http.dart';
 import 'dart:convert';
 
 class Tafseer {
-  String ayah;
+  Map ayahs;
   String url;
   String tafseer;
-  Tafseer({this.ayah, this.url, this.tafseer});
+  Tafseer({this.ayahs, this.url, this.tafseer});
 
   Future<void> getAyah() async {
     // make the request
     try {
-      Response response = await get('http://api.quran-tafseer.com/quran/$url');
+      Response response = await get('https://api.alquran.cloud/v1/surah/$url');
+
       Map data = json.decode(utf8.decode(response.bodyBytes));
 
-      ayah = data['text'];
+      //print(data);
+      ayahs = data;
     } catch (e) {
       print('couldnot ayah');
     }

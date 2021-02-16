@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tafseer_app/constants.dart';
 import 'package:tafseer_app/screens/SurahTafseer/SurahTafseer.dart';
 import 'package:tafseer_app/services/TafseerAPI.dart';
+import 'package:flutter_placeholder_textlines/placeholder_lines.dart';
 
 // ignore: camel_case_types
 class Surah_details extends StatefulWidget {
@@ -34,23 +35,17 @@ class _Surah_detailsState extends State<Surah_details> {
   List<String> ayah = [];
   List<String> responses = [];
   List<Tafseer> instances = [];
+  bool _loading = false;
 
-  void ayahContent() {
-    for (var i = 1; i <= {widget.num_of_Ayahs}.first; i++) {
-      instances.add(Tafseer(url: '${widget.surah_num}/$i'));
+  void loadAyahs() async {
+    Tafseer li = Tafseer(url: '${widget.surah_num}');
+    await li.getAyah();
+    for (var j = 0; j <= (li.ayahs["data"]["ayahs"].length) - 1; j++) {
+      responses.add(li.ayahs["data"]["ayahs"][j]["text"]);
     }
-  }
-
-  void loadAyahs() {
-    Future.wait(instances.map((instance) => instance.getAyah()).toList())
-        .then((void v) {
-      responses =
-          responses + instances.map((instance) => instance.ayah).toList();
-      if (mounted) {
-        setState(() {
-          ayah = responses;
-        });
-      }
+    setState(() {
+      ayah = responses;
+      _loading = true;
     });
   }
 
@@ -110,18 +105,20 @@ class _Surah_detailsState extends State<Surah_details> {
         width: 10,
       )));
     }
+    print('saliti');
     return children;
   }
 
   @override
   void initState() {
-    super.initState();
-    ayahContent();
     loadAyahs();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Stack(
@@ -150,16 +147,19 @@ class _Surah_detailsState extends State<Surah_details> {
                   style: TextStyle(
                       fontSize: 80, fontFamily: 'Tajawal', color: kTextColor),
                 )),*/
+
                 Flexible(
                   child: ListView(
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 10.0),
-                        child: RichText(
-                            textAlign: TextAlign.center,
-                            textDirection: TextDirection.rtl,
-                            text: TextSpan(children: ayahTransform(ayah))),
+                        child: _loading == false
+                            ? _buildAnimated(width, height)
+                            : RichText(
+                                textAlign: TextAlign.center,
+                                textDirection: TextDirection.rtl,
+                                text: TextSpan(children: ayahTransform(ayah))),
                       ),
                     ],
                   ),
@@ -171,4 +171,17 @@ class _Surah_detailsState extends State<Surah_details> {
       ),
     );
   }
+}
+
+_buildAnimated(width_of_screen, height_of_screen) {
+  return Container(
+    width: width_of_screen,
+    height: height_of_screen,
+    child: PlaceholderLines(
+      align: TextAlign.center,
+      count: 50,
+      animate: true,
+      color: kPrimaryColor,
+    ),
+  );
 }
