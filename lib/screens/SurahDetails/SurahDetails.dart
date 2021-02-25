@@ -22,7 +22,9 @@ class Surah_details extends StatefulWidget {
 
   // ignore: non_constant_identifier_names
   final String surah_name;
+  // ignore: non_constant_identifier_names
   final int surah_num;
+  // ignore: non_constant_identifier_names
   final int num_of_Ayahs;
   final double width;
   final double height;
@@ -31,6 +33,7 @@ class Surah_details extends StatefulWidget {
   _Surah_detailsState createState() => _Surah_detailsState();
 }
 
+// ignore: camel_case_types
 class _Surah_detailsState extends State<Surah_details> {
   List<String> ayah = [];
   List<String> responses = [];
@@ -117,7 +120,6 @@ class _Surah_detailsState extends State<Surah_details> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kBackgroundColor,
@@ -155,7 +157,7 @@ class _Surah_detailsState extends State<Surah_details> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 10.0),
                         child: _loading == false
-                            ? _buildAnimated(width, height)
+                            ? _buildAnimated(width)
                             : RichText(
                                 textAlign: TextAlign.center,
                                 textDirection: TextDirection.rtl,
@@ -173,10 +175,9 @@ class _Surah_detailsState extends State<Surah_details> {
   }
 }
 
-_buildAnimated(width_of_screen, height_of_screen) {
+_buildAnimated(widthOfScreen) {
   return Container(
-    width: width_of_screen,
-    height: height_of_screen,
+    width: widthOfScreen,
     child: PlaceholderLines(
       align: TextAlign.center,
       count: 50,

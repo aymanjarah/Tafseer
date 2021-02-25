@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "983460787445",
+    "project_id": "tafseernotif",
+    "storage_bucket": "tafseernotif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983460787445:android:3566a99db5a10804aa41bc",
+        "android_client_info": {
+          "package_name": "com.example.tafseer_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983460787445-0aepl35ujash3bq3n4fb656k0df54ifk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXuiAbvN7bEzPgjge-Ydshjc4WxmAirCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983460787445-0aepl35ujash3bq3n4fb656k0df54ifk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

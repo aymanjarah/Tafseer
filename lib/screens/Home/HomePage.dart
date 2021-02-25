@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tafseer_app/screens/Home/components/AnimatedSearchBar.dart';
 import 'package:tafseer_app/screens/Home/components/SurahTab.dart';
 import 'dart:convert';
-import 'dart:async';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
@@ -15,8 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String messageTitle = "Empty";
+  String notificationAlert = "alert";
   List _ayahs;
-  String _f;
+
   List _filteredNames;
   void getData() async {
     dynamic ayahsList = await rootBundle.loadString('Assets/testfile.json');
@@ -33,14 +34,8 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  void first(String data) {
-    setState(() {
-      _f = data;
-    });
-  }
-
   void filter(String field) {
-    List tempList = new List();
+    List tempList = [];
     for (int i = 0; i < _ayahs.length; i++) {
       if (_ayahs[i]['name'].toLowerCase().contains(field.toLowerCase())) {
         tempList.add(_ayahs[i]);
@@ -72,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   SizedBox(height: height * 0.07),
                   Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.centerRight,
                       child: Text(
                         'مرحبا',
                         style: TextStyle(

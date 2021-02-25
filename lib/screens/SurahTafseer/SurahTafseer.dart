@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:tafseer_app/constants.dart';
 import 'package:tafseer_app/services/TafseerAPI.dart';
+import 'package:flutter_placeholder_textlines/placeholder_lines.dart';
 
 class SurahTafseer extends StatefulWidget {
   const SurahTafseer({
@@ -28,10 +29,13 @@ class _SurahTafseerState extends State<SurahTafseer> {
   String tafseer2 = '';
   String tafseer3 = '';
   String _active = 'تفسير الجلالين';
+  bool _loading = true;
+
   // ignore: missing_return
   Widget bodyFunction(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     switch (_body) {
       case 0:
         return SizedBox(
@@ -43,17 +47,19 @@ class _SurahTafseerState extends State<SurahTafseer> {
                 Flexible(
                   child: ListView(
                     children: [
-                      Text(
-                        tafseer3 ?? "",
-                        textAlign: TextAlign.justify,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            wordSpacing: 4,
-                            height: 1.5,
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Tajawal'),
-                      ),
+                      _loading == true
+                          ? _buildAnimated(width)
+                          : Text(
+                              tafseer3 ?? "",
+                              textAlign: TextAlign.justify,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  wordSpacing: 4,
+                                  height: 1.5,
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: 'Tajawal'),
+                            ),
                     ],
                   ),
                 ),
@@ -72,17 +78,19 @@ class _SurahTafseerState extends State<SurahTafseer> {
                 Flexible(
                   child: ListView(
                     children: [
-                      Text(
-                        tafseer1 ?? "",
-                        textAlign: TextAlign.justify,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            wordSpacing: 4,
-                            height: 1.5,
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Tajawal'),
-                      ),
+                      _loading == true
+                          ? _buildAnimated(width)
+                          : Text(
+                              tafseer1 ?? "",
+                              textAlign: TextAlign.justify,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  wordSpacing: 4,
+                                  height: 1.5,
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: 'Tajawal'),
+                            ),
                     ],
                   ),
                 ),
@@ -101,17 +109,19 @@ class _SurahTafseerState extends State<SurahTafseer> {
                 Flexible(
                   child: ListView(
                     children: [
-                      Text(
-                        tafseer2 ?? "",
-                        textAlign: TextAlign.justify,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                            wordSpacing: 4,
-                            height: 1.5,
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Tajawal'),
-                      ),
+                      _loading == true
+                          ? _buildAnimated(width)
+                          : Text(
+                              tafseer2 ?? "",
+                              textAlign: TextAlign.justify,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  wordSpacing: 4,
+                                  height: 1.5,
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: 'Tajawal'),
+                            ),
                     ],
                   ),
                 ),
@@ -156,6 +166,7 @@ class _SurahTafseerState extends State<SurahTafseer> {
           tafseer1 = tafseerAyah1.tafseer;
           tafseer2 = tafseerAyah2.tafseer;
           tafseer3 = tafseerAyah3.tafseer;
+          _loading = false;
         });
       }
     });
@@ -294,7 +305,7 @@ class TagWall extends StatefulWidget {
 }
 
 class _TagWallState extends State<TagWall> {
-  void HandleTap() {
+  void handleTap() {
     setState(() {
       widget.action(widget.text);
       widget.event(widget.index);
@@ -304,7 +315,7 @@ class _TagWallState extends State<TagWall> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: HandleTap,
+        onTap: handleTap,
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: DecoratedBox(
@@ -326,4 +337,16 @@ class _TagWallState extends State<TagWall> {
           ),
         ));
   }
+}
+
+_buildAnimated(widthOfScreen) {
+  return Container(
+    width: widthOfScreen,
+    child: PlaceholderLines(
+      align: TextAlign.right,
+      count: 5,
+      animate: true,
+      color: kPrimaryColor,
+    ),
+  );
 }

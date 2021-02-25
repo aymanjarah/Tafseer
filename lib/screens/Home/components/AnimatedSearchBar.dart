@@ -18,7 +18,7 @@ class AnimatedSearch extends StatefulWidget {
 
 class _AnimatedSearchState extends State<AnimatedSearch> {
   String _searchText = "";
-  List _filteredNames = new List();
+
   final TextEditingController _filter = new TextEditingController();
   void mainof() {
     _filter.addListener(() {

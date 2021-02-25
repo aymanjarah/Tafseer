@@ -3,11 +3,11 @@ import 'package:tafseer_app/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tafseer_app/screens/Home/HomePage.dart';
 
+// ignore: camel_case_types
 class OnBoard_start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
@@ -25,7 +25,7 @@ class OnBoard_start extends StatelessWidget {
             ),
             SizedBox(height: 15),
             Text(
-              ' ﻣﻨﺼﺔ إﻟﻜﺘﺮوﻧﻴﺔ ﻟﻠﺠﻤﻊ ﺑﻴﻦ ﻓﻌﺎﻟﻴﺎت اﻟﻤﺠﺘﻤﻊ\n اﻟﻤﺪﻧﻲ ﻟﻠﺘﻌﺮﻳﻒ ﺑﺄﺷﻄﺘﻬﺎ وﺑﻴﻦ اﻟﻤﺘﻄﻮﻋﻴﻦ\n .ﻟﺨﺪﻣﺔ وﻣﺴﺎﻋﺪة ﻫﺬه اﻟﺄﺧﻴﺮة ',
+              'تطبيق لتفسير اَيات القراَن الكريم يشمل \n .تفسير الجلالين و الميسر و السعدي',
               textAlign: TextAlign.center,
               style: TextStyle(
                   height: 2,
