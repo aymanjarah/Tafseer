@@ -1,4 +1,4 @@
-# tafseer app
+# Tafseer App
 
 App for Quran Tafseer.
 
